@@ -22,6 +22,8 @@ requires the following to be installed to run:
 	
 	const  bodyParser = require('body-parser');
 	const jsonParser = bodyParser.json();
+	
+	app.set('port', (process.env.PORT || 3000));
 
 	app.use(express.static('public'));
 	
@@ -289,9 +291,13 @@ requires the following to be installed to run:
 		
 	});
 	
+	
+	app.listen(app.get('port'), function() {
+		console.log("Node app is running at localhost:" + app.get('port'))
+	})
 
-	let port = process.env.PORT || 3000;
-	app.listen(port);
+	//let port = process.env.PORT || 3000;
+	//app.listen(port);
 	
 	
 }) ();
