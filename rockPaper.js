@@ -16,7 +16,8 @@ uses cookies to keep track of log ins if the buttons is clicked.
 	
 	//http://localhost:3000
 	//http://ec2-52-206-46-141.compute-1.amazonaws.com/:3000
-	let SERVER_ADDRESS = "https://csc337-finalproject-clickv3.herokuapp.com/:process.env.PORT";
+	let port = process.env.PORT || 3000
+	let SERVER_ADDRESS = "https://csc337-finalproject-clickv3.herokuapp.com/:" + port;
 	let loggedInUserName = null;
 	let buttonClicks = 0;
 	
