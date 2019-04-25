@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/egamIrorriM/337test"
   },
+  "scripts": {
+  "start": "node server.js"
+  },
   "author": "Matthew Chambers",
   "license": "ISC"
 }
