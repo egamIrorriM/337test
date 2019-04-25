@@ -19,7 +19,7 @@
     "url": "https://github.com/egamIrorriM/337test"
   },
   "scripts": {
-  "start": "node server.js"
+  "start": "node rockPaper_service.js"
   },
   "author": "Matthew Chambers",
   "license": "ISC"
