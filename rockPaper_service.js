@@ -11,10 +11,11 @@ requires the following to be installed to run:
 	
 */
 
-"use strict";
 
 (function() {
 		
+	"use strict";
+
 	const express = require("express");
 	const app = express();
 	let fs = require('fs');
@@ -23,7 +24,7 @@ requires the following to be installed to run:
 	const  bodyParser = require('body-parser');
 	const jsonParser = bodyParser.json();
 	
-	app.set('port', (process.env.PORT || 3000));
+	//app.set('port', (process.env.PORT || 3000));
 
 	app.use(express.static('public'));
 	
@@ -196,14 +197,6 @@ requires the following to be installed to run:
 		
 	}
 	
-	/** ensures there is no problem with the program talking back and forth on the same computer*/
-	app.use(function(req, res, next) {
-		res.header("Access-Control-Allow-Origin", "*");
-		res.header("Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept");
-		next();
-	});
-	
 
 	/** checks that the sessionID is good, and then tries to update the clicks
 	*/
@@ -255,6 +248,14 @@ requires the following to be installed to run:
 		
 		
 	}
+	
+	/** ensures there is no problem with the program talking back and forth on the same computer*/
+	app.use(function(req, res, next) {
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header("Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept");
+		next();
+	});
 
 	
 	/** collects the data sent from rockPaper.js
@@ -291,13 +292,22 @@ requires the following to be installed to run:
 		
 	});
 	
+	app.get('/', function (req, res) {//get function
+		res.send("hello!\n");
+		
+
+	});
 	
+	
+	
+	/*
 	app.listen(app.get('port'), function() {
 		console.log("Node app is running at localhost:" + app.get('port'))
 	})
-
+	*/
+	
 	//let port = process.env.PORT || 3000;
 	//app.listen(port);
-	
+	app.listen(process.env.PORT);
 	
 }) ();
